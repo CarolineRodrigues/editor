@@ -59,6 +59,13 @@
                     field.valueChanged(editor.formData);
                 }
             }, []);
+            
+            editor.model.document.on('change', function () {
+            var data = editor.getData();
+
+             // Notify the UI that the value has been changed. Will be used to trigger validation.
+                    field.valueChanged(data);
+                });
 
             if (!stateSchema[0]) {
                 return null;
