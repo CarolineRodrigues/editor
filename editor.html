@@ -43,7 +43,10 @@
                 if (window.location.hash && window.location.hash.length > 1) {
                     fetch(window.location.hash.substr(1))
                         .then(x => x.json())
-                        .then(x => stateSchema[1](x));
+                        .then(x => {
+                        console.log(stateSchema[1](x));
+                       return stateSchema[1](x)
+                    });
                 }
             }, []);
 
