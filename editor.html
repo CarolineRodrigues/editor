@@ -33,7 +33,7 @@
         function Editor() {
             var stateValue = React.useState(undefined);
             var stateSchema = React.useState(undefined);
-            console.log(stateSchema);
+            console.log("State Schema", stateSchema);
 
             React.useEffect(function () {
                 field.onValueChanged(function (value) {
@@ -44,7 +44,7 @@
                     fetch(window.location.hash.substr(1))
                         .then(x => x.json())
                         .then(x => {
-                        console.log(stateSchema[1](x));
+                        console.log("Schema 1", stateSchema[1](x));
                        return stateSchema[1](x)
                     });
                 }
