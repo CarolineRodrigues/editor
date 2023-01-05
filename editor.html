@@ -55,17 +55,11 @@
             }, []);
 
             const doChange = React.useCallback(function (editor) {
+                 var data = editor.getData();
                 if (editor.errors.length === 0) {
                     field.valueChanged(editor.formData);
                 }
             }, []);
-            
-            editor.model.document.on('change', function () {
-            var data = editor.getData();
-
-             // Notify the UI that the value has been changed. Will be used to trigger validation.
-                    field.valueChanged(data);
-                });
 
             if (!stateSchema[0]) {
                 return null;
