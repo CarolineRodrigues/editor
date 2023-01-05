@@ -31,15 +31,11 @@
         const field = new SquidexFormField();
 
         function Editor() {
-            var stateDisabled = React.useState(false); // Use ES5 language features only.
             var stateValue = React.useState(undefined);
             var stateSchema = React.useState(undefined);
+            console.log(stateSchema);
 
             React.useEffect(function () {
-                field.onDisabled(function (disabled) {
-                    stateDisabled[1](disabled);
-                });
-                
                 field.onValueChanged(function (value) {
                     stateValue[1](value);
                 });
@@ -68,7 +64,6 @@
             return (
                 React.createElement(Form, {
                     formData: stateValue[0],
-                    disabled: stateDisabled[0],
                     onChange: doChange,
                     onBlur: doBlur,
                     schema: stateSchema[0],
