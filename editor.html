@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div id="editor"></div>
+      <div id="editor"></div>
 
     <script>
         const Form = JSONSchemaForm.default;
@@ -31,11 +31,15 @@
         const field = new SquidexFormField();
 
         function Editor() {
+            var stateDisabled = React.useState(false); // Use ES5 language features only.
             var stateValue = React.useState(undefined);
             var stateSchema = React.useState(undefined);
-            console.log("State Schema", stateSchema);
 
             React.useEffect(function () {
+                field.onDisabled(function (disabled) {
+                    stateDisabled[1](disabled);
+                });
+                
                 field.onValueChanged(function (value) {
                     stateValue[1](value);
                 });
@@ -43,10 +47,7 @@
                 if (window.location.hash && window.location.hash.length > 1) {
                     fetch(window.location.hash.substr(1))
                         .then(x => x.json())
-                        .then(x => {
-                        console.log("Schema 1", stateSchema[1](x));
-                       return stateSchema[1](x)
-                    });
+                        .then(x => stateSchema[1](x));
                 }
             }, []);
 
@@ -67,6 +68,7 @@
             return (
                 React.createElement(Form, {
                     formData: stateValue[0],
+                    disabled: stateDisabled[0],
                     onChange: doChange,
                     onBlur: doBlur,
                     schema: stateSchema[0],
