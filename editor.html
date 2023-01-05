@@ -59,6 +59,7 @@
             const doChange = React.useCallback(function (editor) {
                 if (editor.errors.length === 0) {
                     field.valueChanged(editor.formData);
+                    stateValue[1](editor.formData);
                 }
             }, []);
 
