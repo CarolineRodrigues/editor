@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "https://carolinerodrigues.github.io/editor/static/css/main.b416e6bb.css",
+    "main.js": "https://carolinerodrigues.github.io/editor/static/js/main.d45fa0b0.js",
+    "index.html": "https://carolinerodrigues.github.io/editor/index.html",
+    "main.b416e6bb.css.map": "https://carolinerodrigues.github.io/editor/static/css/main.b416e6bb.css.map",
+    "main.d45fa0b0.js.map": "https://carolinerodrigues.github.io/editor/static/js/main.d45fa0b0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b416e6bb.css",
+    "static/js/main.d45fa0b0.js"
+  ]
+}
